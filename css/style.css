@@ -29,6 +29,7 @@ header .logo {
 }
 nav a {
     margin-left: 20px;
+    font-size: 25px;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -168,4 +169,5 @@ footer {
 .modal-content form button:hover {
     background: #0073a6;
 }
+
 
