@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurav Travels - Tours</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Saurav Travels</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tours.html">Tours</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Explore Our Amazing Tours</h1>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="tours">
+        <h2>All Our Tours</h2>
+        <div class="tour-cards">
+            <div class="tour-card">
+                <img src="images/tours/desert_safari.jpg" alt="Dubai Desert Safari">
+                <div class="content">
+                    <h3>Dubai Desert Safari</h3>
+                    <p>Dune bashing, camel rides, BBQ, entertainment. Perfect adventure!</p>
+                    <button class="btn" onclick="openBookingForm()">AED 75 Book Now</button>
+                </div>
+            </div>
+            <div class="tour-card">
+                <img src="images/tours/city_tour.jpg" alt="Dubai City Tour">
+                <div class="content">
+                    <h3>Dubai City Tour</h3>
+                    <p>Guided tour to iconic landmarks, museums, and hidden gems of Dubai.</p>
+                    <button class="btn" onclick="openBookingForm()">AED 50 Book Now</button>
+                </div>
+            </div>
+            <div class="tour-card">
+                <img src="images/tours/dhow_cruise.jpg" alt="Dhow Cruise Dinner">
+                <div class="content">
+                    <h3>Dhow Cruise Dinner</h3>
+                    <p>Luxury dinner cruise on Dubai Creek with live entertainment.</p>
+                    <button class="btn" onclick="openBookingForm()">AED 60 Book Now</button>
+                </div>
+            </div>
+            <div class="tour-card">
+                <img src="images/tours/burj_khalifa.jpg" alt="Burj Khalifa Visit">
+                <div class="content">
+                    <h3>Burj Khalifa Visit</h3>
+                    <p>Visit the world’s tallest building and enjoy panoramic city views.</p>
+                    <button class="btn" onclick="openBookingForm()">AED 90 Book Now</button>
+                </div>
+            </div>
+            <!-- Add more tours here as needed -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Saurav Travels | All rights reserved | Email: sauravtravels@example.com
+    </footer>
+
+    <!-- Booking Form Modal (same as index.html) -->
+    <!-- Booking Form Modal -->
+<div id="bookingForm" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBookingForm()">&times;</span>
+        <h3>Book Your Tour</h3>
+        
+        <!-- Form (ready for email submission) -->
+        <form id="bookingFormForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" name="_replyto" id="email" placeholder="Enter your email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
+            
+            <label for="tour">Select Tour:</label>
+            <select name="tour" id="tour" required>
+                <option value="">-- Select a Tour --</option>
+                <option value="Dubai Desert Safari">Dubai Desert Safari</option>
+                <option value="Dubai City Tour">Dubai City Tour</option>
+                <option value="Dhow Cruise Dinner">Dhow Cruise Dinner</option>
+                <option value="Burj Khalifa Visit">Burj Khalifa Visit</option>
+            </select>
+            
+            <label for="guests">Number of Guests:</label>
+            <input type="number" name="guests" id="guests" min="1" placeholder="Enter number of guests" required>
+            
+            <label for="date">Travel Date:</label>
+            <input type="date" name="date" id="date" required>
+            
+            <label for="requests">Special Requests:</label>
+            <textarea name="requests" id="requests" placeholder="Any special requests?" rows="4"></textarea>
+            
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+</div>
+
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

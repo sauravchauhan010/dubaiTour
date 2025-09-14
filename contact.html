@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Saurav Travels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Saurav Travels</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tours.html">Tours</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Contact Us</h1>
+            <p>We’d love to hear from you! Reach out for bookings or inquiries.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" style="padding:60px 50px; text-align:center;">
+        <h2>Get in Touch</h2>
+        <form id="contactForm" style="max-width:500px; margin:30px auto; text-align:left;">
+            <label>Name:</label>
+            <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:8px; margin-bottom:10px;">
+            
+            <label>Email:</label>
+            <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:8px; margin-bottom:10px;">
+            
+            <label>Phone:</label>
+            <input type="tel" name="phone" placeholder="Your Phone" required style="width:100%; padding:8px; margin-bottom:10px;">
+            
+            <label>Message:</label>
+            <textarea name="message" placeholder="Your Message" required style="width:100%; padding:8px; margin-bottom:10px; height:100px;"></textarea>
+            
+            <button type="submit" style="padding:10px 20px; background:#008cba; color:#fff; border:none; border-radius:5px; cursor:pointer;">Send Message</button>
+        
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Saurav Travels | All rights reserved | Email: sauravtravels@example.com
+    </footer>
+
+    <!-- JS for form submission -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('Thank you! Your message has been sent.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
