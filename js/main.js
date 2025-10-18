@@ -8,7 +8,7 @@ function closeBookingForm() {
     document.getElementById('bookingForm').style.display = 'none';
 }
 
-// Close the modal when clicking outside of it
+// Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('bookingForm');
     if(event.target == modal) {
@@ -25,11 +25,25 @@ async function translateTextFree(text, targetLang = 'hi') {
     return data[0].map(item => item[0]).join('');
 }
 
-// Translate button click
+// Toggle translate / original
+let translated = false;
 document.getElementById('translateBtn').addEventListener('click', async () => {
     const elements = document.querySelectorAll('[data-translate]');
-    for (let el of elements) {
-        const translated = await translateTextFree(el.innerText, 'hi');
-        el.innerText = translated;
+    
+    if (!translated) {
+        // Translate to Hindi
+        for (let el of elements) {
+            if (!el.dataset.original) el.dataset.original = el.innerText;
+            el.innerText = await translateTextFree(el.innerText, 'hi');
+        }
+        translated = true;
+        document.getElementById('translateBtn').innerText = 'Show Original';
+    } else {
+        // Restore original text
+        elements.forEach(el => {
+            if (el.dataset.original) el.innerText = el.dataset.original;
+        });
+        translated = false;
+        document.getElementById('translateBtn').innerText = 'Translate to Hindi';
     }
 });
