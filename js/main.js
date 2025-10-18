@@ -1,46 +1,32 @@
-// Existing modal code
+// Open the booking form modal
 function openBookingForm() {
     document.getElementById('bookingForm').style.display = 'flex';
 }
 
+// Close the booking form modal
 function closeBookingForm() {
     document.getElementById('bookingForm').style.display = 'none';
 }
 
+// Close the modal when clicking outside of it
 window.onclick = function(event) {
     const modal = document.getElementById('bookingForm');
-    if(event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == modal) {
+        modal.style.display = 'none';
     }
 }
 
 // ---------------------------
-// New translation function
-async function translatePage(targetLang = 'hi') {
-    const elements = document.querySelectorAll('[data-translate]');
-
-    for (let el of elements) {
-        const text = el.innerText;
-        const translated = await fetchTranslation(text, targetLang);
-        el.innerText = translated;
-    }
-}
-
-async function fetchTranslation(text, targetLang) {
-    const apiKey = "YOUR_API_KEY"; // Replace with your Google Translate API key
-    const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
-
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q: text, target: targetLang })
-    });
-
+// Free translation function using Google Translate web endpoint
+async function translateTextFree(text, targetLang = 'hi') {
+    const response = await fetch(
+        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`
+    );
     const data = await response.json();
-    return data.data.translations[0].translatedText;
+    return data[0].map(item => item[0]).join('');
 }
 
-// Example: translate page to Hindi when user clicks a button
-document.getElementById('translateBtn').addEventListener('click', () => {
-    translatePage('hi'); // 'hi' = Hindi
+// Example usage: translate a sample text
+translateTextFree("Hello, how are you?", "hi").then(translated => {
+    console.log(translated); // Outputs Hindi translation
 });
